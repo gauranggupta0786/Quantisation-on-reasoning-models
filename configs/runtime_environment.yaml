@@ -1,0 +1,19 @@
+runtime_observed_in_notebook:
+  python_version: 3.13.2
+  platform: Linux-6.8.0-87-generic-x86_64-with-glibc2.39
+  cuda_available: true
+  cuda_version: 12.8
+  gpu_name: NVIDIA H100 NVL
+  gpu_vram_gb: 93.09
+
+package_versions:
+  transformers: 5.5.0
+  trl: 0.24.0
+  peft: 0.19.1
+  accelerate: 1.13.0
+  datasets: 4.3.0
+  bitsandbytes: 0.49.2
+
+notes:
+  - Notebook text references constrained experiments motivated by lower-VRAM settings.
+  - vllm availability was reported as true in Phase 8 setup output.

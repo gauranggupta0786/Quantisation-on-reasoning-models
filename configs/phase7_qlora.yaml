@@ -1,0 +1,65 @@
+phase: phase7_qlora
+
+base_model:
+  id: unsloth/DeepSeek-R1-Distill-Qwen-1.5B
+  max_seq_length: 2048
+
+quantization_variants:
+  nf4:
+    label: NF4
+    loader: unsloth
+    load_in_4bit: true
+    kv_cache_quant: null
+  nf4_kv:
+    label: NF4 + KV-cache quant
+    loader: unsloth
+    load_in_4bit: true
+    kv_cache_quant: int8
+
+lora:
+  r: 16
+  lora_alpha: 16
+  lora_dropout: 0.0
+  bias: none
+  use_gradient_checkpointing: unsloth
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training_arguments:
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 10
+  max_steps_default: 120
+  learning_rate_default: 0.0002
+  logging_steps_default: 10
+  save_steps_default: 20
+  save_strategy: steps
+  save_total_limit: 2
+  optim: adamw_8bit
+  weight_decay: 0.01
+  lr_scheduler_type: linear
+  seed: 3407
+  report_to: none
+
+phase7_runtime_overrides:
+  train_max_steps: 120
+  train_learning_rate: 0.0002
+
+evaluation:
+  gsm8k_samples: 30
+  gpqa_samples: 30
+
+paths:
+  phase_root: src/Quantization_Reasoning_Project/phase7_qlora_experiment
+  prepared_data_dir: src/Quantization_Reasoning_Project/phase7_qlora_experiment/prepared_data
+  tokenized_dir: src/Quantization_Reasoning_Project/phase7_qlora_experiment/tokenized
+  runs_dir: src/Quantization_Reasoning_Project/phase7_qlora_experiment/runs
+  adapters_dir: src/Quantization_Reasoning_Project/phase7_qlora_experiment/adapters
+  logs_dir: src/Quantization_Reasoning_Project/phase7_qlora_experiment/logs
+  evaluations_dir: src/Quantization_Reasoning_Project/phase7_qlora_experiment/evaluations

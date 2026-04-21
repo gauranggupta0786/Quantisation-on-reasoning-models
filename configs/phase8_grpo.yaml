@@ -1,0 +1,90 @@
+phase: phase8_grpo
+
+base_model:
+  id: Qwen/Qwen2.5-1.5B-Instruct
+  max_seq_length: 2048
+  compute_dtype: float32
+
+quantization:
+  load_in_4bit: true
+  quant_type: nf4
+  use_double_quant: true
+
+lora:
+  r: 16
+  lora_alpha: 16
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+dataset_limits:
+  train_gsm8k: 2000
+  train_gpqa: 200
+  eval_gsm8k: 20
+  eval_gpqa: 20
+
+generation_controls:
+  pilot_max_completion_length: 64
+  max_completion_tokens: 64
+
+reward_schedule:
+  warmup:
+    granular_format_reward_func: 1.2
+    proportional_loop_penalty_func: 0.8
+    language_consistency_reward_func: 0.5
+    soft_accuracy_reward_func: 0.3
+    length_heuristic_reward_func: 0.6
+  mid:
+    granular_format_reward_func: 1.0
+    proportional_loop_penalty_func: 0.9
+    language_consistency_reward_func: 0.6
+    soft_accuracy_reward_func: 0.7
+    length_heuristic_reward_func: 0.7
+  strict:
+    granular_format_reward_func: 0.8
+    proportional_loop_penalty_func: 1.0
+    language_consistency_reward_func: 0.7
+    soft_accuracy_reward_func: 1.0
+    length_heuristic_reward_func: 0.8
+
+grpo_pilot:
+  output_dir: src/Quantization_Reasoning_Project/phase8_grpo_experiment/grpo_outputs_pilot
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 2
+  generation_batch_size: 2
+  learning_rate: 0.000005
+  num_generations: 2
+  max_prompt_length: 64
+  max_completion_length: 64
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 20
+  do_sample: false
+  repetition_penalty: 1.08
+  mask_truncated_completions: true
+  max_grad_norm: 0.5
+  use_vllm: false
+  num_train_epochs: 20
+  logging_first_step: true
+  logging_steps: 10
+  save_steps: 200
+  save_total_limit: 2
+  report_to: none
+
+paths:
+  phase_root: src/Quantization_Reasoning_Project/phase8_grpo_experiment
+  prepared_data_dir: src/Quantization_Reasoning_Project/phase8_grpo_experiment/prepared_data
+  adapter_dir: src/Quantization_Reasoning_Project/phase8_grpo_experiment/adapter_grpo
+  reports_dir: src/Quantization_Reasoning_Project/phase8_grpo_experiment/reports
+  raw_eval_csv: src/Quantization_Reasoning_Project/phase8_grpo_experiment/reports/phase8_raw_eval.csv
+  metrics_csv: src/Quantization_Reasoning_Project/phase8_grpo_experiment/reports/phase8_metrics.csv
+  comparison_csv: src/Quantization_Reasoning_Project/phase8_grpo_experiment/reports/phase7_vs_phase8_comparison.csv
+  comparison_plot: src/Quantization_Reasoning_Project/phase8_grpo_experiment/reports/phase7_vs_phase8_plot.png
