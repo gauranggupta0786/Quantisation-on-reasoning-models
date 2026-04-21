@@ -1,0 +1,6 @@
+# One prompt per line. Blank lines and comment lines are ignored.
+A shop had 48 pens. It sold 19 in the morning and 11 in the evening. How many are left?
+If 3x + 5 = 20, what is x?
+A student studies 45 minutes each day for 6 days. What is the total study time in hours?
+A taxi fare is 80 rupees plus 12 rupees per km. What is the fare for 5 km?
+A rectangle has length 9 and width 4. What is its area?

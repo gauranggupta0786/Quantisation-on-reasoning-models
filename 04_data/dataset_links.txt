@@ -1,0 +1,34 @@
+Dataset Links and Access Notes
+==============================
+
+1) GSM8K (openai/gsm8k)
+------------------------
+Link:
+https://huggingface.co/datasets/openai/gsm8k
+
+Usage in notebook:
+- load_dataset("openai/gsm8k", "main")
+
+Access notes:
+- Public dataset on Hugging Face.
+- No gated approval required.
+
+Credentials:
+- No credential required for normal access.
+
+
+2) GPQA Diamond (Idavidrein/gpqa)
+----------------------------------
+Link:
+https://huggingface.co/datasets/Idavidrein/gpqa
+
+Usage in notebook:
+- load_dataset("Idavidrein/gpqa", "gpqa_diamond")
+
+Access notes:
+- May require Hugging Face account authorization and acceptance of dataset terms.
+- If access is restricted/gated, request access on the dataset page first.
+
+Credentials:
+- HF_TOKEN=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
+

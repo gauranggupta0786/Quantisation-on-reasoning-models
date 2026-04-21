@@ -1,0 +1,5 @@
+dataset,accuracy_pct,loop_failure_pct,truncation_failure_pct,samples,method
+gpqa,20.0,0.0,13.333333333333334,,Phase 7 QLoRA SFT
+gsm8k,38.33333333333333,0.0,0.0,,Phase 7 QLoRA SFT
+gpqa,30.0,0.0,0.0,20.0,Phase 8 GRPO
+gsm8k,15.0,0.0,0.0,20.0,Phase 8 GRPO

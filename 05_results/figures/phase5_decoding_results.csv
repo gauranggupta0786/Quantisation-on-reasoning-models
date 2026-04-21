@@ -1,0 +1,7 @@
+Config,Accuracy (%),Loop Rate (%),Truncation Rate (%)
+Baseline,66.66666666666666,0.0,3.3333333333333335
+Greedy Logic,80.0,0.0,0.0
+High Variance,70.0,0.0,0.0
+Loop Breaker 1,70.0,0.0,3.3333333333333335
+Loop Breaker 2,80.0,0.0,3.3333333333333335
+Prob Clipping,70.0,0.0,6.666666666666667

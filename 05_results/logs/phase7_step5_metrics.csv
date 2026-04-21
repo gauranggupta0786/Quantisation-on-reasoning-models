@@ -1,0 +1,5 @@
+run_name,dataset,quant_config,samples,accuracy_pct,loop_failure_pct,truncation_failure_pct,raw_eval_path
+gsm8k__nf4,gsm8k,nf4,30,36.666666666666664,0.0,0.0,/home/priyankajain/cropland1020/modis_data_final/Quantization_Reasoning_Project/phase7_qlora_experiment/evaluations/gsm8k__nf4_eval.csv
+gsm8k__nf4_kv,gsm8k,nf4_kv,30,40.0,0.0,0.0,/home/priyankajain/cropland1020/modis_data_final/Quantization_Reasoning_Project/phase7_qlora_experiment/evaluations/gsm8k__nf4_kv_eval.csv
+gpqa__nf4,gpqa,nf4,30,23.333333333333332,0.0,13.333333333333334,/home/priyankajain/cropland1020/modis_data_final/Quantization_Reasoning_Project/phase7_qlora_experiment/evaluations/gpqa__nf4_eval.csv
+gpqa__nf4_kv,gpqa,nf4_kv,30,16.666666666666668,0.0,13.333333333333334,/home/priyankajain/cropland1020/modis_data_final/Quantization_Reasoning_Project/phase7_qlora_experiment/evaluations/gpqa__nf4_kv_eval.csv

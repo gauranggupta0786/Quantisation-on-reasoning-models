@@ -1,0 +1,3 @@
+dataset,samples,accuracy_pct,loop_failure_pct,truncation_failure_pct,method
+gpqa,20,30.0,0.0,0.0,Phase 8 GRPO
+gsm8k,20,15.0,0.0,0.0,Phase 8 GRPO
