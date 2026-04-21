@@ -1,0 +1,8 @@
+torch
+pandas
+transformers
+peft
+bitsandbytes
+accelerate
+huggingface_hub
+ipykernel
