@@ -1,0 +1,8 @@
+Team Id : 23
+Mentor Name: Prashant Trivedi 
+Project Name: Effect on Reasoning due to Quantization on SLM
+Member Details:
+Gautam Singhvie, 2023A7PS0612P, f20230612@pilani.bits-pilani.ac.in.
+Arindam Verma, 2023A7PS0614P, f20230614@pilani.bits-pilani.ac.in.
+Gaurang Gupta, 2023A7PS0648P, f20230648@pilani.bits-pilani.ac.in.
+Aaryaman Kalani, 2022B5A70488P, f20220488@pilani.bits-pilani.ac.in.
